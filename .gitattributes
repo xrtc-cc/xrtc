@@ -1,0 +1,2 @@
+XRTCDemo_iOS/XrtcDemo/NERtcSDK.framework/NERtcSDK filter=lfs diff=lfs merge=lfs -text
+XRTCDemo_iOS/XrtcDemo/AgoraRtcKit.framework/AgoraRtcKit filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">XRTCDemo</string>
+    <string name="permission_denied">必要权限未授权</string>
+    <string name="room_id_nonnull">房间号或ID不能为空</string>
+    <string name="confirm">确定</string>
+
+    <string name="agora_appid">3f2e8611c431457ba2ab836f57cbfbf5</string>
+    <string name="hw_appid">6120b750fa163e4cc9a01da073e34592</string>
+    <string name="hw_Domain">6120b750fa163e4cc9a01da073e34592.cloudrtc.myhuaweicloud.com</string>
+    <string name="tencent_appid">1400564619</string>
+    <string name="tencent_secretKey">5f4186fd12befa64f3d7db112ac4854b75eaf535d393fc289c923a7582dfe13f</string>
+    <string name="yunxin_appid">08d76687725460110105849dce92845d</string>
+
+    <string name="please_push_stream">请先推流后再执行操作</string>
+    <string name="joined_room">请先加入一个房间</string>
+    <string name="alrady_push_stream">已经开启推流</string>
+    <string name="stream_closed">流已关闭</string>
+    <string name="open_audio">启用音频</string>
+    <string name="stop_audio">停用音频</string>
+    <string name="open_video">启用视频</string>
+    <string name="stop_video">停用视频</string>
+</resources>

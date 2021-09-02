@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RTCActivity">
+
+    <include layout="@layout/common_title_bar" android:id="@+id/bar_title"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        app:constraint_referenced_ids="bt_start_push,bt_stop_push,bt_stop_audio,bt_stop_video,bt_leave"
+        app:flow_firstHorizontalStyle="spread_inside"
+        app:flow_horizontalGap="10dp"
+        app:flow_maxElementsWrap="4"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintEnd_toEndOf="@+id/bar_title"
+        app:layout_constraintStart_toStartOf="@+id/bar_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_start_push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStartPushStreamClick"
+        android:text="开始推流" />
+
+    <Button
+        android:id="@+id/bt_stop_push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStopPushStreamClick"
+        android:text="停止推流" />
+
+    <Button
+        android:id="@+id/bt_stop_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStopAudioClick"
+        android:text="停用音频" />
+
+    <Button
+        android:id="@+id/bt_stop_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStopVideoClick"
+        android:text="停用视频" />
+
+    <Button
+        android:id="@+id/bt_leave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onLeaveClick"
+        android:text="离开房间" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_video1"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flow">
+
+        <FrameLayout
+            android:id="@+id/fl_local"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:background="#22000000" />
+
+        <FrameLayout
+            android:id="@+id/fl_blank1"
+            android:layout_width="20dp"
+            android:layout_height="120dp" />
+
+        <FrameLayout
+            android:id="@+id/fl_remote1"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:background="#22000000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_video2"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_video1">
+
+        <FrameLayout
+            android:id="@+id/fl_remote2"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:background="#22000000" />
+
+        <FrameLayout
+            android:id="@+id/fl_blank2"
+            android:layout_width="20dp"
+            android:layout_height="120dp" />
+
+        <FrameLayout
+            android:id="@+id/fl_remote3"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:background="#22000000" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

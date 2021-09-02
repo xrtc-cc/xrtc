@@ -1,0 +1,6 @@
+framework module XrtcSDK {
+  umbrella header "XrtcSDK.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0404B6F926C5344500BE8339 /* NMCBasicModuleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0404B6F726C5344500BE8339 /* NMCBasicModuleFramework.framework */; };
+		0404B6FA26C5344500BE8339 /* NMCBasicModuleFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0404B6F726C5344500BE8339 /* NMCBasicModuleFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0404B6FB26C5344500BE8339 /* NERtcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0404B6F826C5344500BE8339 /* NERtcSDK.framework */; };
+		0404B6FC26C5344500BE8339 /* NERtcSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0404B6F826C5344500BE8339 /* NERtcSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0461C74026A975A7002890A8 /* XRTCCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461C73F26A975A7002890A8 /* XRTCCommon.m */; };
+		047A85DC26AA5811000C0714 /* audioPlay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047A85DB26AA5811000C0714 /* audioPlay.jpg */; };
+		04AD985526A91186005702CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD985426A91186005702CA /* AppDelegate.m */; };
+		04AD985B26A91186005702CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD985A26A91186005702CA /* ViewController.m */; };
+		04AD985E26A91186005702CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD985C26A91186005702CA /* Main.storyboard */; };
+		04AD986026A9118E005702CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AD985F26A9118E005702CA /* Assets.xcassets */; };
+		04AD986326A9118E005702CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AD986126A9118E005702CA /* LaunchScreen.storyboard */; };
+		04AD986626A9118E005702CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD986526A9118E005702CA /* main.m */; };
+		04AD987026A9118F005702CA /* XrtcDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD986F26A9118F005702CA /* XrtcDemoTests.m */; };
+		04AD987B26A9118F005702CA /* XrtcDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD987A26A9118F005702CA /* XrtcDemoUITests.m */; };
+		04AD988926A919D9005702CA /* XrtcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD988826A919D7005702CA /* XrtcViewController.xib */; };
+		04AD988C26A91A6B005702CA /* XrtcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD988B26A91A6B005702CA /* XrtcViewController.m */; };
+		04AD988F26A91DE6005702CA /* RtcAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AD988D26A91DE4005702CA /* RtcAccountInfo.m */; };
+		04AD989C26A953AE005702CA /* AgoraSoundTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989126A953AD005702CA /* AgoraSoundTouch.framework */; };
+		04AD989D26A953AE005702CA /* AgoraSoundTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989126A953AD005702CA /* AgoraSoundTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD989E26A953AE005702CA /* Agoraffmpeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989226A953AD005702CA /* Agoraffmpeg.framework */; };
+		04AD989F26A953AE005702CA /* Agoraffmpeg.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989226A953AD005702CA /* Agoraffmpeg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98A026A953AE005702CA /* HWRTCEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989326A953AD005702CA /* HWRTCEngine.framework */; };
+		04AD98A126A953AE005702CA /* HWRTCEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989326A953AD005702CA /* HWRTCEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98A426A953AE005702CA /* Agorafdkaac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989526A953AD005702CA /* Agorafdkaac.framework */; };
+		04AD98A526A953AE005702CA /* Agorafdkaac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989526A953AD005702CA /* Agorafdkaac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98AA26A953AE005702CA /* AgoraCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989826A953AD005702CA /* AgoraCore.framework */; };
+		04AD98AB26A953AE005702CA /* AgoraCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989826A953AD005702CA /* AgoraCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98AC26A953AE005702CA /* AgoraRtcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989926A953AD005702CA /* AgoraRtcKit.framework */; };
+		04AD98AD26A953AE005702CA /* AgoraRtcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989926A953AD005702CA /* AgoraRtcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98AE26A953AE005702CA /* TXLiteAVSDK_TRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989A26A953AD005702CA /* TXLiteAVSDK_TRTC.framework */; };
+		04AD98AF26A953AE005702CA /* TXLiteAVSDK_TRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989A26A953AD005702CA /* TXLiteAVSDK_TRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04AD98B026A953AE005702CA /* XrtcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989B26A953AD005702CA /* XrtcSDK.framework */; };
+		04AD98B126A953AE005702CA /* XrtcSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AD989B26A953AD005702CA /* XrtcSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04B4DCA426ADB19800B3CE1D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B4DCA226ADB19800B3CE1D /* MainViewController.m */; };
+		04B4DCA526ADB19800B3CE1D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B4DCA326ADB19800B3CE1D /* MainViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04AD986C26A9118F005702CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04AD984826A91186005702CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04AD984F26A91186005702CA;
+			remoteInfo = XrtcDemo;
+		};
+		04AD987726A9118F005702CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04AD984826A91186005702CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04AD984F26A91186005702CA;
+			remoteInfo = XrtcDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04AD98B226A953AE005702CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				04AD98AD26A953AE005702CA /* AgoraRtcKit.framework in Embed Frameworks */,
+				04AD98A126A953AE005702CA /* HWRTCEngine.framework in Embed Frameworks */,
+				04AD98AB26A953AE005702CA /* AgoraCore.framework in Embed Frameworks */,
+				04AD989F26A953AE005702CA /* Agoraffmpeg.framework in Embed Frameworks */,
+				0404B6FC26C5344500BE8339 /* NERtcSDK.framework in Embed Frameworks */,
+				04AD98AF26A953AE005702CA /* TXLiteAVSDK_TRTC.framework in Embed Frameworks */,
+				04AD98B126A953AE005702CA /* XrtcSDK.framework in Embed Frameworks */,
+				04AD989D26A953AE005702CA /* AgoraSoundTouch.framework in Embed Frameworks */,
+				0404B6FA26C5344500BE8339 /* NMCBasicModuleFramework.framework in Embed Frameworks */,
+				04AD98A526A953AE005702CA /* Agorafdkaac.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0404B6F726C5344500BE8339 /* NMCBasicModuleFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMCBasicModuleFramework.framework; path = XrtcDemo/NMCBasicModuleFramework.framework; sourceTree = "<group>"; };
+		0404B6F826C5344500BE8339 /* NERtcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NERtcSDK.framework; path = XrtcDemo/NERtcSDK.framework; sourceTree = "<group>"; };
+		0461C73E26A975A5002890A8 /* XRTCCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRTCCommon.h; sourceTree = "<group>"; };
+		0461C73F26A975A7002890A8 /* XRTCCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRTCCommon.m; sourceTree = "<group>"; };
+		047A85DB26AA5811000C0714 /* audioPlay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = audioPlay.jpg; sourceTree = "<group>"; };
+		04AD985026A91186005702CA /* XrtcDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XrtcDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04AD985326A91186005702CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04AD985426A91186005702CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04AD985926A91186005702CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		04AD985A26A91186005702CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		04AD985D26A91186005702CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04AD985F26A9118E005702CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04AD986226A9118E005702CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04AD986426A9118E005702CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04AD986526A9118E005702CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04AD986B26A9118F005702CA /* XrtcDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XrtcDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04AD986F26A9118F005702CA /* XrtcDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XrtcDemoTests.m; sourceTree = "<group>"; };
+		04AD987126A9118F005702CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04AD987626A9118F005702CA /* XrtcDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XrtcDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04AD987A26A9118F005702CA /* XrtcDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XrtcDemoUITests.m; sourceTree = "<group>"; };
+		04AD987C26A9118F005702CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04AD988826A919D7005702CA /* XrtcViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XrtcViewController.xib; sourceTree = "<group>"; };
+		04AD988A26A91A69005702CA /* XrtcViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XrtcViewController.h; sourceTree = "<group>"; };
+		04AD988B26A91A6B005702CA /* XrtcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XrtcViewController.m; sourceTree = "<group>"; };
+		04AD988D26A91DE4005702CA /* RtcAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtcAccountInfo.m; sourceTree = "<group>"; };
+		04AD988E26A91DE6005702CA /* RtcAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtcAccountInfo.h; sourceTree = "<group>"; };
+		04AD989126A953AD005702CA /* AgoraSoundTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraSoundTouch.framework; path = XrtcDemo/AgoraSoundTouch.framework; sourceTree = "<group>"; };
+		04AD989226A953AD005702CA /* Agoraffmpeg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agoraffmpeg.framework; path = XrtcDemo/Agoraffmpeg.framework; sourceTree = "<group>"; };
+		04AD989326A953AD005702CA /* HWRTCEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HWRTCEngine.framework; path = XrtcDemo/HWRTCEngine.framework; sourceTree = "<group>"; };
+		04AD989526A953AD005702CA /* Agorafdkaac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agorafdkaac.framework; path = XrtcDemo/Agorafdkaac.framework; sourceTree = "<group>"; };
+		04AD989826A953AD005702CA /* AgoraCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraCore.framework; path = XrtcDemo/AgoraCore.framework; sourceTree = "<group>"; };
+		04AD989926A953AD005702CA /* AgoraRtcKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcKit.framework; path = XrtcDemo/AgoraRtcKit.framework; sourceTree = "<group>"; };
+		04AD989A26A953AD005702CA /* TXLiteAVSDK_TRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_TRTC.framework; path = XrtcDemo/TXLiteAVSDK_TRTC.framework; sourceTree = "<group>"; };
+		04AD989B26A953AD005702CA /* XrtcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XrtcSDK.framework; path = XrtcDemo/XrtcSDK.framework; sourceTree = "<group>"; };
+		04B4DCA126ADB19800B3CE1D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		04B4DCA226ADB19800B3CE1D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		04B4DCA326ADB19800B3CE1D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04AD984D26A91186005702CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04AD98AC26A953AE005702CA /* AgoraRtcKit.framework in Frameworks */,
+				04AD98A026A953AE005702CA /* HWRTCEngine.framework in Frameworks */,
+				04AD98AA26A953AE005702CA /* AgoraCore.framework in Frameworks */,
+				04AD989E26A953AE005702CA /* Agoraffmpeg.framework in Frameworks */,
+				0404B6FB26C5344500BE8339 /* NERtcSDK.framework in Frameworks */,
+				04AD98AE26A953AE005702CA /* TXLiteAVSDK_TRTC.framework in Frameworks */,
+				04AD98B026A953AE005702CA /* XrtcSDK.framework in Frameworks */,
+				04AD989C26A953AE005702CA /* AgoraSoundTouch.framework in Frameworks */,
+				0404B6F926C5344500BE8339 /* NMCBasicModuleFramework.framework in Frameworks */,
+				04AD98A426A953AE005702CA /* Agorafdkaac.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD986826A9118F005702CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD987326A9118F005702CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04AD984726A91185005702CA = {
+			isa = PBXGroup;
+			children = (
+				04AD985226A91186005702CA /* XrtcDemo */,
+				04AD986E26A9118F005702CA /* XrtcDemoTests */,
+				04AD987926A9118F005702CA /* XrtcDemoUITests */,
+				04AD985126A91186005702CA /* Products */,
+				04AD989026A953AC005702CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04AD985126A91186005702CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04AD985026A91186005702CA /* XrtcDemo.app */,
+				04AD986B26A9118F005702CA /* XrtcDemoTests.xctest */,
+				04AD987626A9118F005702CA /* XrtcDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04AD985226A91186005702CA /* XrtcDemo */ = {
+			isa = PBXGroup;
+			children = (
+				04AD985326A91186005702CA /* AppDelegate.h */,
+				04AD985426A91186005702CA /* AppDelegate.m */,
+				04AD985926A91186005702CA /* ViewController.h */,
+				04AD985A26A91186005702CA /* ViewController.m */,
+				04B4DCA126ADB19800B3CE1D /* MainViewController.h */,
+				04B4DCA226ADB19800B3CE1D /* MainViewController.m */,
+				04B4DCA326ADB19800B3CE1D /* MainViewController.xib */,
+				04AD988A26A91A69005702CA /* XrtcViewController.h */,
+				04AD988B26A91A6B005702CA /* XrtcViewController.m */,
+				04AD988826A919D7005702CA /* XrtcViewController.xib */,
+				047A85DB26AA5811000C0714 /* audioPlay.jpg */,
+				0461C73E26A975A5002890A8 /* XRTCCommon.h */,
+				0461C73F26A975A7002890A8 /* XRTCCommon.m */,
+				04AD988E26A91DE6005702CA /* RtcAccountInfo.h */,
+				04AD988D26A91DE4005702CA /* RtcAccountInfo.m */,
+				04AD985C26A91186005702CA /* Main.storyboard */,
+				04AD985F26A9118E005702CA /* Assets.xcassets */,
+				04AD986126A9118E005702CA /* LaunchScreen.storyboard */,
+				04AD986426A9118E005702CA /* Info.plist */,
+				04AD986526A9118E005702CA /* main.m */,
+			);
+			path = XrtcDemo;
+			sourceTree = "<group>";
+		};
+		04AD986E26A9118F005702CA /* XrtcDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				04AD986F26A9118F005702CA /* XrtcDemoTests.m */,
+				04AD987126A9118F005702CA /* Info.plist */,
+			);
+			path = XrtcDemoTests;
+			sourceTree = "<group>";
+		};
+		04AD987926A9118F005702CA /* XrtcDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04AD987A26A9118F005702CA /* XrtcDemoUITests.m */,
+				04AD987C26A9118F005702CA /* Info.plist */,
+			);
+			path = XrtcDemoUITests;
+			sourceTree = "<group>";
+		};
+		04AD989026A953AC005702CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0404B6F826C5344500BE8339 /* NERtcSDK.framework */,
+				0404B6F726C5344500BE8339 /* NMCBasicModuleFramework.framework */,
+				04AD989826A953AD005702CA /* AgoraCore.framework */,
+				04AD989526A953AD005702CA /* Agorafdkaac.framework */,
+				04AD989226A953AD005702CA /* Agoraffmpeg.framework */,
+				04AD989926A953AD005702CA /* AgoraRtcKit.framework */,
+				04AD989126A953AD005702CA /* AgoraSoundTouch.framework */,
+				04AD989326A953AD005702CA /* HWRTCEngine.framework */,
+				04AD989A26A953AD005702CA /* TXLiteAVSDK_TRTC.framework */,
+				04AD989B26A953AD005702CA /* XrtcSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04AD984F26A91186005702CA /* XrtcDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04AD987F26A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemo" */;
+			buildPhases = (
+				04AD984C26A91186005702CA /* Sources */,
+				04AD984D26A91186005702CA /* Frameworks */,
+				04AD984E26A91186005702CA /* Resources */,
+				04AD98B226A953AE005702CA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XrtcDemo;
+			productName = XrtcDemo;
+			productReference = 04AD985026A91186005702CA /* XrtcDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04AD986A26A9118F005702CA /* XrtcDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04AD988226A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemoTests" */;
+			buildPhases = (
+				04AD986726A9118F005702CA /* Sources */,
+				04AD986826A9118F005702CA /* Frameworks */,
+				04AD986926A9118F005702CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04AD986D26A9118F005702CA /* PBXTargetDependency */,
+			);
+			name = XrtcDemoTests;
+			productName = XrtcDemoTests;
+			productReference = 04AD986B26A9118F005702CA /* XrtcDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04AD987526A9118F005702CA /* XrtcDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04AD988526A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemoUITests" */;
+			buildPhases = (
+				04AD987226A9118F005702CA /* Sources */,
+				04AD987326A9118F005702CA /* Frameworks */,
+				04AD987426A9118F005702CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04AD987826A9118F005702CA /* PBXTargetDependency */,
+			);
+			name = XrtcDemoUITests;
+			productName = XrtcDemoUITests;
+			productReference = 04AD987626A9118F005702CA /* XrtcDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04AD984826A91186005702CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					04AD984F26A91186005702CA = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					04AD986A26A9118F005702CA = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 04AD984F26A91186005702CA;
+					};
+					04AD987526A9118F005702CA = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 04AD984F26A91186005702CA;
+					};
+				};
+			};
+			buildConfigurationList = 04AD984B26A91186005702CA /* Build configuration list for PBXProject "XrtcDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04AD984726A91185005702CA;
+			productRefGroup = 04AD985126A91186005702CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04AD984F26A91186005702CA /* XrtcDemo */,
+				04AD986A26A9118F005702CA /* XrtcDemoTests */,
+				04AD987526A9118F005702CA /* XrtcDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04AD984E26A91186005702CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047A85DC26AA5811000C0714 /* audioPlay.jpg in Resources */,
+				04B4DCA526ADB19800B3CE1D /* MainViewController.xib in Resources */,
+				04AD986326A9118E005702CA /* LaunchScreen.storyboard in Resources */,
+				04AD988926A919D9005702CA /* XrtcViewController.xib in Resources */,
+				04AD986026A9118E005702CA /* Assets.xcassets in Resources */,
+				04AD985E26A91186005702CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD986926A9118F005702CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD987426A9118F005702CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04AD984C26A91186005702CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04AD988F26A91DE6005702CA /* RtcAccountInfo.m in Sources */,
+				04AD985B26A91186005702CA /* ViewController.m in Sources */,
+				04AD988C26A91A6B005702CA /* XrtcViewController.m in Sources */,
+				04AD985526A91186005702CA /* AppDelegate.m in Sources */,
+				04B4DCA426ADB19800B3CE1D /* MainViewController.m in Sources */,
+				0461C74026A975A7002890A8 /* XRTCCommon.m in Sources */,
+				04AD986626A9118E005702CA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD986726A9118F005702CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04AD987026A9118F005702CA /* XrtcDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04AD987226A9118F005702CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04AD987B26A9118F005702CA /* XrtcDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04AD986D26A9118F005702CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04AD984F26A91186005702CA /* XrtcDemo */;
+			targetProxy = 04AD986C26A9118F005702CA /* PBXContainerItemProxy */;
+		};
+		04AD987826A9118F005702CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04AD984F26A91186005702CA /* XrtcDemo */;
+			targetProxy = 04AD987726A9118F005702CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04AD985C26A91186005702CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04AD985D26A91186005702CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04AD986126A9118E005702CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04AD986226A9118E005702CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04AD987D26A9118F005702CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		04AD987E26A9118F005702CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04AD988026A9118F005702CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.20210723;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XrtcDemo",
+				);
+				INFOPLIST_FILE = XrtcDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		04AD988126A9118F005702CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.20210723;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XrtcDemo",
+				);
+				INFOPLIST_FILE = XrtcDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		04AD988326A9118F005702CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				INFOPLIST_FILE = XrtcDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XrtcDemo.app/XrtcDemo";
+			};
+			name = Debug;
+		};
+		04AD988426A9118F005702CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				INFOPLIST_FILE = XrtcDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XrtcDemo.app/XrtcDemo";
+			};
+			name = Release;
+		};
+		04AD988626A9118F005702CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				INFOPLIST_FILE = XrtcDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XrtcDemo;
+			};
+			name = Debug;
+		};
+		04AD988726A9118F005702CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULU2J35Q89;
+				INFOPLIST_FILE = XrtcDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xrtc.XrtcDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = XrtcDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04AD984B26A91186005702CA /* Build configuration list for PBXProject "XrtcDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04AD987D26A9118F005702CA /* Debug */,
+				04AD987E26A9118F005702CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04AD987F26A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04AD988026A9118F005702CA /* Debug */,
+				04AD988126A9118F005702CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04AD988226A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04AD988326A9118F005702CA /* Debug */,
+				04AD988426A9118F005702CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04AD988526A9118F005702CA /* Build configuration list for PBXNativeTarget "XrtcDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04AD988626A9118F005702CA /* Debug */,
+				04AD988726A9118F005702CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04AD984826A91186005702CA /* Project object */;
+}

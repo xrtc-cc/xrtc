@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/common_title_bar" android:id="@+id/bar_title"/>
+
+    <Button
+        android:id="@+id/tv_select_rtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onRtcSelectClick"
+        android:text="选择RTC：声网"
+        app:layout_constraintBottom_toTopOf="@+id/et_room_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar_title" />
+
+    <EditText
+        android:id="@+id/et_room_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="请输入房间号"
+        android:textColorHint="@color/color_hint"
+        android:textColor="@color/black"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/et_user_id"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_select_rtc" />
+
+    <EditText
+        android:id="@+id/et_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="请输入用户ID"
+        android:textColorHint="@color/color_hint"
+        android:textColor="@color/black"
+        android:inputType="numberDecimal"
+        android:maxLines="9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/et_room_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_select_rtc" />
+
+    <Button
+        android:id="@+id/tv_join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onJoinClick"
+        android:text="进入房间"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_room_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
