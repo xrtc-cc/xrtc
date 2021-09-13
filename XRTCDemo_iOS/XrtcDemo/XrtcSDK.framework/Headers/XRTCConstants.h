@@ -79,6 +79,16 @@ typedef NS_ENUM(NSInteger, XRTCOrientationMode) {
 };
 
 /**
+ 房间场景
+*/
+typedef NS_ENUM(NSInteger, XRTCChannelProfileType) {
+    /* 通信场景。该场景下，房间内所有用户都可以发布和接收音、视频流。适用于语音通话、视频群聊等应用场景 */
+    XRTCChannelProfileCommunication = 0,
+    /* 直播场景。该场景有主播和观众两种用户角色，主播可以发布和接收音视频流，观众直接接收流。适用于语聊房、视频直播、互动大班课等应用场景 */
+    XRTCChannelProfileLiveBroadcasting,
+ };
+
+/**
  音频场景
 */
 typedef NS_ENUM(NSInteger, XRTCAudioScenarioType) {

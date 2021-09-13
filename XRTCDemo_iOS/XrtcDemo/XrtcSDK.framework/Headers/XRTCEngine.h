@@ -59,7 +59,12 @@
 - (int)videoEncoderConfiguration:(XRTCVideoEncode)videoEncode;
 
 /**
- * 设置视频使用场景，当前声网、网易支持
+ * 设置房间场景
+ */
+- (void)setChannelProfile:(XRTCChannelProfileType)profile;
+
+/**
+ * 设置音频场景
  */
 - (void)setAudioProfileScenario:(XRTCAudioScenarioType)scenario;
 
@@ -223,13 +228,16 @@
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine onConnStateChange:(XRTCConnStateType)state;
 
 /**
- * RTC音视频数据统计回调
+ * 本地RTC音视频数据统计回调
  */
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
    onLocalRtcStats:(XRTCLocalRtcStats *)localRtcStats
         audioStats:(XRTCLocalAudioStats *)localAudioStats
         videoStats:(XRTCLocalVideoStats *)localVideoStats;
 
+/**
+ * 远端RTC音视频数据统计回调
+ */
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
   onRemoteRtcStats:(XRTCRemoteRtcStats *)remoteRtcStats
         audioStats:(XRTCRemoteAudioStats *)remoteAudioStats
