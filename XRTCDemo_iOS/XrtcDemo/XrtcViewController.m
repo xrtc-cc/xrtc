@@ -522,17 +522,15 @@
 }
 
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
-   onLocalRtcStats:(XRTCLocalRtcStats *)localRtcStats
-        audioStats:(XRTCLocalAudioStats *)localAudioStats
-        videoStats:(XRTCLocalVideoStats *)localVideoStats
+   localAudioStats:(XRTCLocalAudioStats *)localAudioStats
+   localVideoStats:(XRTCLocalVideoStats *)localVideoStats
 {
     //每隔2s触发
 }
 
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
-  onRemoteRtcStats:(XRTCRemoteRtcStats *)remoteRtcStats
-        audioStats:(XRTCRemoteAudioStats *)remoteAudioStats
-        videoStats:(XRTCRemoteVideoStats *)remoteVideoStats
+  remoteAudioStats:(XRTCRemoteAudioStats *)remoteAudioStats
+  remoteVideoStats:(XRTCRemoteVideoStats *)remoteVideoStats
 {
     //每隔2s触发
 }

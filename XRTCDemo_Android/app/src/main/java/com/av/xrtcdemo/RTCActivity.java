@@ -26,7 +26,6 @@ import com.av.xrtc.engines.HwRtcEngine;
 import com.av.xrtc.engines.TengXunEngine;
 import com.av.xrtc.event.IEngineEventHandler;
 import com.av.xrtc.params.InitParams;
-import com.av.xrtc.params.LeaveState;
 import com.av.xrtc.params.LocalAudioStats;
 import com.av.xrtc.params.LocalVideoStats;
 import com.av.xrtc.params.RemoteAudioStats;
@@ -195,7 +194,7 @@ public class RTCActivity extends BaseActivity {
         }
 
         @Override
-        public void onLeaveChannel(LeaveState leaveState) {
+        public void onLeaveChannel() {
             Log.i(TAG, "onLeaveChannel");
         }
 
@@ -309,11 +308,6 @@ public class RTCActivity extends BaseActivity {
                     }
                 }
             });
-        }
-
-        @Override
-        public void onRtcStats(RtcStats rtcStats) {
-
         }
 
         @Override

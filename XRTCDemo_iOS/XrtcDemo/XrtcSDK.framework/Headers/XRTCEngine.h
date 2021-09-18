@@ -231,16 +231,14 @@
  * 本地RTC音视频数据统计回调
  */
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
-   onLocalRtcStats:(XRTCLocalRtcStats *)localRtcStats
-        audioStats:(XRTCLocalAudioStats *)localAudioStats
-        videoStats:(XRTCLocalVideoStats *)localVideoStats;
+   localAudioStats:(XRTCLocalAudioStats *)localAudioStats
+   localVideoStats:(XRTCLocalVideoStats *)localVideoStats;
 
 /**
  * 远端RTC音视频数据统计回调
  */
 - (void)XRTCEngine:(XRTCEngine *)xrtcEngine
-  onRemoteRtcStats:(XRTCRemoteRtcStats *)remoteRtcStats
-        audioStats:(XRTCRemoteAudioStats *)remoteAudioStats
-        videoStats:(XRTCRemoteVideoStats *)remoteVideoStats;
+  remoteAudioStats:(XRTCRemoteAudioStats *)remoteAudioStats
+  remoteVideoStats:(XRTCRemoteVideoStats *)remoteVideoStats;
 
 @end
