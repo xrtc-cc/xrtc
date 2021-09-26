@@ -1,0 +1,529 @@
+<!doctype html><html><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><head><title>XRTC-DEMO</title><style>button {
+            background: #03A9F4;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 4px 6px;
+            cursor: pointer;
+        }
+
+        .myLocalView {
+            width: 320px;
+            height: 240px;
+            margin-top: 10px;
+        }
+
+        .remoteView {
+            width: 320px;
+            height: 240px;
+            position: absolute;
+            right: 6px;
+            top: 60px;
+        }
+
+        .videoBox {
+            width: 320px;
+            height: 240px;
+        }
+
+        .view {
+            margin-top: 10px;
+        }
+
+        .inputView {
+            width: 200px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: inline;
+        }</style><script src="XRTC.js"></script></head><body><div class="view"><button id="agoraRtc" class="show">agora</button> <button id="trtc" class="show">腾讯云RTC</button></div><div class="view"><div class="view"><span>房间号:</span> <input class="inputView" id="channelText" value="test_06241" size="16" placeholder="房间号只能是数字、字母或数字字母组合"> <span>uid:</span> <input class="inputView" id="uidText" value="808080" size="10" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="只能输入数字"> <span>分辨率</span> <select name="resolution" id="resolutionView"></select></div><div class="view"><button id="joinBtn" class="show">加入</button> <button id="leaveBtn" class="hide">离开</button> <button id="publishBtn" class="hide">推流</button> <button id="unpublishBtn" class="hide">停止推流</button> <button id="muteVideoBtn" class="hide">禁用视频</button> <button id="unmuteVideoBtn" class="hide">取消禁视频</button> <button id="muteAudioBtn" class="hide">禁用音频</button> <button id="unmuteAudioBtn" class="hide">取消禁音频</button></div><div><div class="myLocalView" id="myLocalView"></div><div id="remoteView" class="remoteView"></div></div></div><script>let isInit = false;
+        let isJoin = false;
+        let isPublish = false;
+        let config = null;
+
+        let channel = "";
+        let uid = "";
+        let tiemstamp = Date.now();
+        let option = { userId: uid, userName: uid, role: "audience", signature: "", ctime: tiemstamp };
+        let localStream = null;
+        let client = null;
+        let codec = "vp8";
+        let resolution = ["240p_1",
+            "240p_2",
+            "270p_1",
+            "300p_1",
+            "360p_1",
+            "360p_2",
+            "360p_3",
+            "450p_1",
+            "480p_1",
+            "480p_2",
+            "540p_1",
+            "630p_1",
+            "720p_1",
+            "720p_2"];
+        let videoResolution = resolution[0];
+        window.onload = function () {
+            console.log("window.onload");
+            let joinBtn = document.getElementById("joinBtn");
+            let leaveBtn = document.getElementById("leaveBtn");
+            let publishBtn = document.getElementById("publishBtn");
+            let unpublishBtn = document.getElementById("unpublishBtn");
+
+            let muteVideoBtn = document.getElementById("muteVideoBtn");
+            let unmuteVideoBtn = document.getElementById("unmuteVideoBtn");
+            let muteAudioBtn = document.getElementById("muteAudioBtn");
+            let unmuteAudioBtn = document.getElementById("unmuteAudioBtn");
+
+            let channelText = document.getElementById("channelText");
+            let uidText = document.getElementById("uidText");
+            uidText.value = "" + parseInt(Math.random() * 1000) + parseInt(Math.random() * 1000) + parseInt(Math.random() * 1000);
+            let myLocalView = document.getElementById("myLocalView");
+            let remoteView = document.getElementById("remoteView");
+            let resolutionView = document.getElementById("resolutionView");
+
+            let agoraRtc = document.getElementById("agoraRtc");
+            let trtc = document.getElementById("trtc");
+            agoraRtc.addEventListener("click", loadSdk);
+            trtc.addEventListener("click", loadSdk);
+    
+            joinBtn.addEventListener("click", joinRoom);
+            leaveBtn.addEventListener("click", leave);
+            publishBtn.addEventListener("click", publish);
+            unpublishBtn.addEventListener("click", unpublish);
+            resolutionView.addEventListener("change", onChangeSelect);
+
+            muteVideoBtn.addEventListener("click", muteVideo);
+            unmuteVideoBtn.addEventListener("click", unmuteVideo);
+            muteAudioBtn.addEventListener("click", muteAudio);
+            unmuteAudioBtn.addEventListener("click", unmuteAudio);
+
+            creatSlectList();
+
+            function loadSdk(evt) {
+                let id = evt.target.id;
+                let userId = uidText.value;
+                switch (id) {
+                    case "agoraRtc":
+                        config = { sdkType: "agoraRtc", userId: userId, appId: "653539c819b74b09b6d6ed1d7ffcc0c4", domain: "", mode: "live", codec: codec }
+                        break;
+                    case "trtc":
+                        config = { sdkType: "trtc", userId: userId, appId: "1400564619", secretKey: "5f4186fd12befa64f3d7db112ac4854b75eaf535d393fc289c923a7582dfe13f", domain: "", mode: "live", codec: codec }
+                        break;
+                    default:
+                        alert("无效的配置");
+                        return;
+                        break
+                }
+                isInit = false;
+                //切换rtc sdk
+                XRTC.switchRtc({ type: config.sdkType }, (data) => {
+                    console.log("rtc sdk loaded", data);
+                    let isMatch = XRTC.checkSystemRequirements()
+                    if (isMatch) {
+                        console.log("浏览器支持rtc")
+                    } else {
+                        log("浏览器不支持!")
+                    }
+                    client = XRTC.createClient(config);
+                    init();
+                });
+            }
+
+            //初始化
+            function init() {
+                if (isInit) {
+                    log("已经初始")
+                    return;
+                }
+                client.init(config, function () {
+                    console.log("初始-成功", Date.now(), config);
+                    isInit = true;
+                    addEvent();
+                }, function (err) {
+                    console.log("初始-失败", Date.now(), err)
+                });
+            }
+
+            //加入频道
+            function joinRoom() {
+                if (!config) {
+                    log("无效的配置文件,请选择服务");
+                    return;
+                }
+                if (isJoin) {
+                    log("已经加入房间")
+                    return;
+                }
+                uid = parseInt(uidText.value) || "";
+                channel = channelText.value || "";
+                if (!channel || !uid) {
+                    log("房间号和uid不能为空")
+                    return;
+                }
+                option.userId = String(uid);
+                option.userName = String(uid);
+                option.channel = channel;
+                option.channelKey = null;
+                option.uid = uid;
+                option.ctime = Date.now();
+
+                try {
+                    console.log("开始加入房间----->1", option, Date.now());
+                    client.join(option, function (uid) {
+                        console.log("加入成功2", Date.now(), option);
+                        isJoin = true;
+                        changeBtnStatus();
+                    }, function (err) {
+                        console.log("加入失败3", Date.now(), err)
+                    });
+
+                } catch (e) {
+                    console.log("加入失败4", Date.now(), e)
+                }
+            }
+
+            //离开频道
+            function leave() {
+                if (!isJoin) {
+                    log("还未加入房间")
+                    return;
+                }
+
+                console.log("开始离开房间", Date.now());
+                client.leave((evt) => {
+                    console.log("离开房间成功", Date.now(), evt);
+                }, (evt) => {
+                    console.log("离开房间失败", Date.now(), evt)
+                })
+                isJoin = false;
+                isPublish = false;
+                changeBtnStatus();
+                remoteView.innerHTML = "";
+                myLocalView.innerHTML = "";
+            }
+
+            //创建stream
+            function creatStream(callback) {
+                localStream = XRTC.createStream({ streamID: uid, audio: true, video: true, screen: false, microphoneId: "", cameraId: "" });
+                console.log("localStream", localStream);
+                localStream.setVideoProfile(videoResolution);
+                localStream.uid = uid;
+                localStream.init((res) => {
+                    console.log("stream init success");
+                    callback && callback();
+                }, (err) => {
+                    console.log("initialize-faild", err)
+                    isPublish = false;
+                    changeBtnStatus();
+                    removeStream(uid);
+                });
+            }
+            //推流
+            function publish() {
+                if (!isJoin) {
+                    log("还未加入房间")
+                    return;
+                }
+                creatStream(() => {
+                    addStream(localStream, "myLocalView");
+                    client.publish(localStream, function (err) {
+                        console.log("publish-faild", err);
+                        isPublish = false;
+                        changeBtnStatus();
+                        removeStream(uid);
+                    });
+
+                });
+
+            }
+            //停止推流
+            function unpublish() {
+                if (!isJoin) {
+                    log("还未加入房间")
+                    return;
+                }
+                if (!localStream) {
+                    return;
+                }
+                client.unpublish((evt) => {
+                    console.log("unpublish-succ", res);
+                }, (err) => {
+                    console.log("unpublish-faild", err)
+                });
+                isPublish = false;
+                changeBtnStatus();
+                removeStream(uid);
+                clearView("myLocalView")
+
+            }
+            //禁用视频
+            function muteVideo() {
+                if (!localStream) return;
+                let result = localStream.muteVideo();
+                console.log("muteVideo", result);
+            }
+            //取消禁用视频
+            function unmuteVideo() {
+                if (!localStream) return;
+                let result = localStream.unmuteVideo();
+                console.log("unmuteVideo", result);
+            }
+            //禁用音频
+            function muteAudio() {
+                if (!localStream) return;
+                let result = localStream.muteAudio();
+                console.log("muteAudio", result);
+            }
+            //取消禁用音频
+            function unmuteAudio() {
+                if (!localStream) return;
+                let result = localStream.unmuteAudio();
+                console.log("unmuteAudio", result);
+            }
+
+            //切换设备
+            function switchDevice(type = "", deviceId = "") {
+                if (!localStream) return;
+                if (!type || !deviceId) return;
+                localStream.switchDevice(type, deviceId);
+            }
+            //获取设备列表
+            function getDevices() {
+                XRTC.getDevices((res) => {
+                    console.log("获取设备列表完成", res);
+                    cameras = [];
+                    microphones = [];
+                    for (let i = 0; i < res.length; i++) {
+                        let item = res[i];
+                        if (item.deviceId) {
+                            if (item.kind == "audioinput") {
+                                cameras.push({
+                                    deviceId: item.deviceId,
+                                    name: item.lable || "mic_" + i
+                                });
+                            } else if (item.kind == "videoinput") {
+                                cameras.push({
+                                    deviceId: item.deviceId,
+                                    name: item.lable || "camera_" + i
+                                });
+                            }
+                        }
+                    }
+                    updateDeviceList();
+
+                }, (err) => {
+
+                    console.warn("获取设备信息失败", err);
+                });
+            }
+
+            //显示stream视图
+            function addStream(stream, viewId) {
+                if (!stream || !viewId) {
+                    console.log("addStream-无效的stream或视图id")
+                    return;
+                }
+                let uid = stream.getId();
+                console.log("显示视图", uid, viewId);
+                let viewBox = document.getElementById(viewId);
+                let view = document.createElement("div");
+                view.id = "user_" + uid;
+                view.className = "videoBox";
+                viewBox.appendChild(view);
+                console.log("stream.play", stream, view.id);
+                if (stream.isPlaying && stream.isPlaying() == true) {
+                    console.log("stream.isPlaying", stream.isPlaying);
+                } else {
+                    console.log("stream.isPlaying-false")
+                }
+
+                stream.play(view.id, { objectFit: "contain", muted: false });
+            }
+
+            //移除视图
+            function removeStream(uid) {
+                if (!uid) {
+                    console.log("removeStream-无效的uid", uid)
+                    return;
+                }
+                let view = document.getElementById("user_" + uid);
+                if (!view) {
+                    console.log("removeStream-无效的视图")
+                } else {
+                    view.remove();
+                }
+                view = null;
+            }
+            //清空视图
+            function clearView(id = "") {
+                if (!id) return;
+                let view = document.getElementById(id);
+                if (!view) {
+                    console.log("clearView-无效的视图")
+                } else {
+                    view.innerHTML = "";
+                }
+                view = null;
+            }
+
+            //监听事件
+            function addEvent() {
+                client.on("error", function (event) {
+                    console.log("error", event)
+                });
+                client.on("connected", function (event) {
+                    console.log("connected", event)
+                });
+                client.on("connection-state-change", function (event) {
+                    console.log("error", event)
+                });
+
+                client.on('stream-published', function (evt) {
+                    console.log("publish-succ", evt);
+                    isPublish = true;
+                    changeBtnStatus();
+
+                });
+                client.on('stream-unpublished', function (evt) {
+                    console.log("stream-unpublished-succ", evt);
+                });
+                client.on("stream-added", function (event) {
+                    console.log("stream-added", event);
+                    const stream = event.stream;
+                    if (stream.uid == String(option.uid)) {
+                        console.log("自己的stream不需要订阅")
+                        return;
+                    }
+                    console.log("调用 subscribe", stream);
+                    client.subscribe(stream, { video: true, audio: true })
+                });
+
+                client.on("stream-subscribed", function (event) {
+                    console.log("stream-subscribed", event)
+                    const stream = event.stream
+                    addStream(stream, "remoteView");
+                });
+
+                client.on('stream-removed', function (event) {
+                    console.log("stream-removed", event);
+                    let stream = event.stream;
+                    let uid = stream.getId();
+                    console.log("--------", stream.getUserId(), stream.getId())
+                    removeStream(uid);
+                    try {
+                        stream.close();
+                    } catch (err) {
+                        console.log("stream-removed-err", err);
+                    }
+
+                    stream = null;
+                })
+
+                client.on("peer-join", function (event) {
+                    console.log("peer-join", event.uid)
+
+                });
+                client.on("peer-leave", function (event) {
+                    console.log("peer-leave", event, event.uid)
+                    removeStream(event.uid);
+                });
+                client.on("mute-video", function (event) {
+                    console.log("mute-video", event)
+                });
+                client.on("unmute-video", function (event) {
+                    console.log("unmute-video", event)
+                });
+                client.on("mute-audio", function (event) {
+                    console.log("mute-audio", event)
+                });
+                client.on("unmute-audio", function (event) {
+                    console.log("unmute-audio", event)
+                });
+
+            }
+            function creatSlectList() {
+                resolutionView.innerHTML = "";
+                let box = document.createDocumentFragment();
+                for (let i = 0; i < resolution.length; i++) {
+                    let option = document.createElement("option");
+                    option.value = resolution[i];
+                    option.innerText = resolution[i];
+                    box.appendChild(option);
+                }
+
+                resolutionView.appendChild(box);
+
+            }
+            function onChangeSelect(evt) {
+
+                let selectedIndex = evt.target.selectedIndex;
+                console.log("onChangeSelect", evt)
+                let option = evt.target.options[selectedIndex];
+                if (option) {
+                    videoResolution = option.value || "240p_1";
+                }
+                console.log("onChangeSelect", videoResolution, option);
+                if (localStream) {
+                    localStream.setVideoProfile(videoResolution);
+                }
+            }
+            function updateDeviceList() {
+                resolutionView.innerHTML = "";
+                let box = document.createDocumentFragment();
+                for (let i = 0; i < resolution.length; i++) {
+                    let option = document.createElement("option");
+                    option.value = resolution[i];
+                    option.innerText = resolution[i];
+                    box.appendChild(option);
+                }
+
+                resolutionView.appendChild(box);
+            }
+            function changeBtnStatus() {
+                if (isJoin) {
+                    joinBtn.style.display = "none";
+                    leaveBtn.style.display = "inline";
+                    publishBtn.style.display = "inline";
+                    unpublishBtn.style.display = "inline";
+
+                    if (isPublish) {
+                        publishBtn.style.display = "none";
+                        unpublishBtn.style.display = "inline";
+                        muteVideoBtn.style.display = "inline";
+                        unmuteVideoBtn.style.display = "inline";
+                        muteAudioBtn.style.display = "inline";
+                        unmuteAudioBtn.style.display = "inline";
+                    } else {
+                        publishBtn.style.display = "inline";
+                        unpublishBtn.style.display = "none";
+                        muteVideoBtn.style.display = "none";
+                        unmuteVideoBtn.style.display = "none";
+                        muteAudioBtn.style.display = "none";
+                        unmuteAudioBtn.style.display = "none";
+                    }
+                } else {
+                    joinBtn.style.display = "inline";
+                    leaveBtn.style.display = "none";
+                    publishBtn.style.display = "none";
+                    unpublishBtn.style.display = "none";
+                    muteVideoBtn.style.display = "none";
+                    unmuteVideoBtn.style.display = "none";
+                    muteAudioBtn.style.display = "none";
+                    unmuteAudioBtn.style.display = "none";
+                }
+            }
+
+            function log() {
+                let str = arguments;
+                console.log("log", str);
+                if (typeof (str) != "string") {
+                    str = JSON.stringify(str);
+                }
+                alert(str)
+            }
+        };</script></body></html>
