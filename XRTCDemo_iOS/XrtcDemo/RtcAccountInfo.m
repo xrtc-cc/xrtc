@@ -60,7 +60,7 @@ static RtcAccountInfo *theRtcAccountInfo=nil;
 - (void)initUserInfo
 {
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         @"3f2e8611c431457ba2ab836f57cbfbf5",                                 @"agora_appId",
+                         @"653539c819b74b09b6d6ed1d7ffcc0c4",                                 @"agora_appId",
                          @"6120b750fa163e4cc9a01da073e34592",                                 @"hrtc_appId",
                          @"1400564619",                                                       @"trtc_appId",
                          @"08d76687725460110105849dce92845d",                                 @"yunxinrtc_appId",
